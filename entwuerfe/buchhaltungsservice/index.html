@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Entwurf für einen persönlichen Buchhaltungs- und Büroservice: Belegorganisation, Datenerfassung nach Vorgabe und digitale Übergabe für kleine Unternehmen.">
+  <meta name="theme-color" content="#102a43">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+  <title>Buchhaltungsservice [Nachname] | Website-Entwurf</title>
+  <style>
+    :root{color-scheme:light;--ink:#102a43;--muted:#50647a;--paper:#fff;--wash:#f0f4f8;--line:#d6e0e9;--accent:#ffb06f;--max:1160px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:2rem}
+    body{margin:0;color:var(--ink);background:var(--paper);font:1rem/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+    a{color:inherit;text-underline-offset:.25em}
+    a:hover{text-decoration-thickness:2px}
+    a:focus-visible,summary:focus-visible{outline:3px solid #bb550d;outline-offset:5px}
+    p,h1,h2,h3,ul,ol,dl{margin-top:0}
+    h1,h2,h3{line-height:1.12;letter-spacing:-.035em}
+    h1{font-size:clamp(2.8rem,5.8vw,5.3rem);font-weight:600;margin-bottom:1.7rem}
+    h2{font-size:clamp(2rem,3.4vw,3.25rem);font-weight:600;margin-bottom:1.4rem}
+    h3{font-size:1.35rem;font-weight:650;line-height:1.3}
+    p{margin-bottom:1.2rem}
+    .wrap{width:min(var(--max),calc(100% - 3rem));margin-inline:auto}
+    .skip{position:absolute;top:-8rem;left:1rem;padding:.8rem 1rem;background:white;z-index:5}
+    .skip:focus{top:1rem}
+    .draft{padding:.7rem 0;background:#fbe9db;color:#66300f;font-size:.875rem}
+    .draft .wrap{display:flex;gap:1rem;justify-content:space-between;flex-wrap:wrap}
+    .draft strong{font-weight:700}
+    .draft a{white-space:nowrap}
+    .masthead{display:flex;justify-content:space-between;align-items:center;gap:2rem;padding:1.6rem 0}
+    .brand{display:flex;gap:.85rem;align-items:center;text-decoration:none;font-weight:700;line-height:1.35}
+    .brand-mark{display:grid;place-items:center;width:2.7rem;height:2.7rem;background:var(--ink);color:#fff;font-size:1.3rem;flex-shrink:0}
+    .brand small{display:block;font-size:.875rem;font-weight:450;color:var(--muted)}
+    nav{display:flex;flex-wrap:wrap;gap:1.3rem;font-size:.9375rem}
+    nav a{text-decoration:none;padding:.3rem 0}
+    .hero{background:var(--ink);color:white}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:5rem;align-items:center;padding:5rem 0 4.5rem}
+    .eyebrow{font-size:.875rem;font-weight:650;letter-spacing:.11em;text-transform:uppercase;margin-bottom:1.4rem}
+    .hero .eyebrow{color:#c2d6e7}
+    .hero h1 span{color:var(--accent)}
+    .hero .lead{font-size:1.125rem;color:#d4e0eb;max-width:34rem;line-height:1.75}
+    .actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem;align-items:center}
+    .button{display:inline-flex;justify-content:center;align-items:center;min-height:3.1rem;padding:.85rem 1.25rem;background:var(--accent);color:var(--ink);text-decoration:none;font-weight:700;border:1px solid transparent}
+    .button:hover{background:#ffc493}
+    .button.secondary{background:transparent;border-color:#71859a;color:white}
+    .button.secondary:hover{background:#203b55}
+    .hero a:focus-visible{outline-color:var(--accent)}
+    .deliverables{border-top:1px solid #53697d;border-bottom:1px solid #53697d;padding:1.7rem 0}
+    .deliverables .eyebrow{margin-bottom:1.4rem}
+    .deliverable{display:grid;grid-template-columns:2.5rem 1fr;gap:1rem;padding:1.4rem 0;border-top:1px solid #385168}
+    .deliverable:first-of-type{border-top:0}
+    .number{font:1rem/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--accent)}
+    .deliverable h3{font-size:1.2rem;margin-bottom:.4rem;letter-spacing:-.015em}
+    .deliverable p{color:#c2d6e7;font-size:.9375rem;margin:0}
+    .sector-row{display:flex;gap:1rem 2.5rem;flex-wrap:wrap;padding:1.4rem 0;color:var(--muted);font-size:.9375rem;border-bottom:1px solid var(--line)}
+    .sector-row strong{color:var(--ink)}
+    section.content{padding:5rem 0}
+    .intro{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;margin-bottom:2.6rem;align-items:start}
+    .intro p{color:var(--muted);max-width:32rem}
+    .intro h2{margin-bottom:0}
+    .services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem}
+    .service{border-top:3px solid var(--ink);padding-top:1.5rem}
+    .service .index{font:1rem/1.5 ui-monospace,Consolas,monospace;color:var(--muted);margin-bottom:1.6rem}
+    .service p{color:var(--muted)}
+    .service ul{padding-left:1.1rem;font-size:.9375rem}
+    .service li{padding-bottom:.45rem}
+    .scope{margin:2rem 0 0;padding:1.3rem 1.5rem;border-left:3px solid #c46825;background:var(--wash);font-size:.9375rem;color:var(--muted)}
+    .scope strong{color:var(--ink)}
+    .wash{background:var(--wash)}
+    .steps{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:0;margin:2.4rem 0 0;gap:2.5rem}
+    .steps li{border-top:1px solid #a8b9c9;padding-top:1.5rem}
+    .steps .step-number{font:1rem/1.4 ui-monospace,Consolas,monospace;margin-bottom:1.5rem}
+    .steps p{color:var(--muted)}
+    .about{display:grid;grid-template-columns:.9fr 1.2fr;gap:5rem}
+    .profile{padding:2rem;border:1px solid var(--line)}
+    .profile h3{font-size:1.7rem;margin-bottom:.65rem}
+    .profile dl{margin:1.8rem 0 0}
+    .profile dt{font-weight:650;font-size:.875rem;margin-top:1rem}
+    .profile dd{margin:0;color:var(--muted)}
+    .pending{color:#79400f}
+    .about-copy p{color:var(--muted)}
+    .principles{list-style:none;padding:0;margin-top:1.5rem}
+    .principles li{padding:.85rem 0;border-top:1px solid var(--line)}
+    .faq{max-width:850px}
+    details{border-bottom:1px solid var(--line)}
+    summary{padding:1.2rem .25rem;cursor:pointer;font-size:1.075rem;font-weight:650}
+    details p{color:var(--muted);padding:0 .25rem .4rem}
+    .contact{background:var(--ink);color:white}
+    .contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem}
+    .contact p{color:#d4e0eb}
+    .contact-data{border-top:1px solid #71859a;padding-top:1.5rem}
+    .contact-data dl{margin:0}
+    .contact-data dt{font-size:.875rem;color:#bacbd9;margin-top:1rem}
+    .contact-data dd{margin:0;font-size:1.125rem;overflow-wrap:anywhere}
+    .contact-note{font-size:.875rem;margin-top:1.5rem}
+    footer{padding:2rem 0}
+    .footer-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem}
+    .footer-top span{font-size:.875rem;color:var(--muted)}
+    .legal-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+    .legal-grid summary{font-size:.9375rem}
+    .legal-grid p,.legal-grid ul{font-size:.875rem;color:var(--muted)}
+    .legal-grid ul{padding-left:1.2rem}
+    .legal-grid strong{color:var(--ink)}
+    @media(max-width:900px){
+      .hero-grid{gap:2.5rem;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);padding:4rem 0}
+      .intro,.about,.contact-grid{gap:2.5rem}
+      .services,.steps{gap:1.5rem}
+      .masthead{align-items:flex-start;gap:1rem}
+      nav{justify-content:flex-end;gap:.8rem 1rem}
+    }
+    @media(max-width:680px){
+      .wrap{width:calc(100% - 2rem)}
+      .masthead{display:block;padding:1.2rem 0}
+      nav{justify-content:flex-start;margin-top:1.1rem}
+      .hero-grid,.intro,.about,.contact-grid,.legal-grid{grid-template-columns:1fr}
+      .hero-grid{gap:2.5rem;padding:3rem 0}
+      .hero h1{max-width:12ch}
+      .services,.steps{grid-template-columns:1fr;gap:1.7rem}
+      .service .index{margin-bottom:1rem}
+      section.content{padding:3.2rem 0}
+      .intro{gap:1.3rem}
+      .intro h2{max-width:17ch}
+      .sector-row{gap:.5rem 1.25rem}
+      .profile{padding:1.5rem}
+      .actions{align-items:stretch}
+      .actions a{flex:1 1 13rem}
+      .steps .step-number{margin-bottom:.8rem}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    @media print{
+      .hero,.contact{background:#fff;color:#102a43}
+      .hero .eyebrow,.hero .lead,.hero h1 span,.contact p,.contact-data dt,.deliverable p,.number{color:#102a43}
+      .actions,nav,.skip{display:none}
+      .wrap{width:100%}
+      section.content{padding:2rem 0}
+      .hero-grid{padding:2rem 0}
+      h1{font-size:2.8rem}
+      h2{font-size:2rem}
+      .service,.profile,.steps li{break-inside:avoid}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#inhalt">Zum Inhalt</a>
+  <div class="draft">
+    <div class="wrap">
+      <span><strong>Website-Entwurf</strong> · Name, Qualifikation und Kontaktdaten noch zu bestätigen.</span>
+      <a href="#startangaben">Offene Angaben ansehen</a>
+    </div>
+  </div>
+  <header class="wrap masthead">
+    <a href="#inhalt" class="brand" aria-label="Buchhaltungsservice, zur Startseite">
+      <span class="brand-mark" aria-hidden="true">B.</span>
+      <span>Buchhaltungsservice<small>[Nachname] · Entwurf</small></span>
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ablauf">Zusammenarbeit</a>
+      <a href="#person">Ansprechpartner</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+  <main id="inhalt">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Belegorganisation &amp; Büroservice</p>
+          <h1 id="hero-title">Ordnung in den Belegen.<br><span>Zeit für Ihr Geschäft.</span></h1>
+          <p class="lead">Unterlagen sammeln, Daten nach Vorgabe erfassen, die Übergabe vorbereiten: persönliche Unterstützung für die Büroarbeit kleiner Unternehmen.</p>
+          <div class="actions">
+            <a class="button" href="#leistungen">Leistungen ansehen</a>
+            <a class="button secondary" href="#ablauf">So ist der Ablauf</a>
+          </div>
+        </div>
+        <aside class="deliverables" aria-label="Vorgesehene Arbeitsergebnisse">
+          <p class="eyebrow">Was Sie zurückbekommen</p>
+          <div class="deliverable"><span class="number">01</span><div><h3>Geordnete Unterlagen</h3><p>Eine nachvollziehbare Ablage nach Monat und Belegart.</p></div></div>
+          <div class="deliverable"><span class="number">02</span><div><h3>Klare Rückfragen</h3><p>Eine Übersicht fehlender Unterlagen und unklarer Angaben.</p></div></div>
+          <div class="deliverable"><span class="number">03</span><div><h3>Vorbereitete Übergabe</h3><p>Ein abgestimmtes Unterlagenpaket für Ihre weitere Bearbeitung oder Steuerkanzlei.</p></div></div>
+        </aside>
+      </div>
+    </section>
+    <div class="wrap sector-row" aria-label="Zielgruppen">
+      <strong>Für kleine Unternehmen</strong><span>Handwerk</span><span>Dienstleistungen</span><span>Handel</span><span>Solo-Selbstständige</span>
+    </div>
+    <section class="content wrap" id="leistungen" aria-labelledby="leistungen-title">
+      <div class="intro">
+        <div><p class="eyebrow">Die Leistungen</p><h2 id="leistungen-title">Weniger Suchen.<br>Mehr Überblick.</h2></div>
+        <p>Einzelner Belegstapel oder regelmäßige Unterstützung: Umfang, Unterlagen und Ergebnis werden vor Beginn gemeinsam festgelegt. Der Entwurf umfasst zunächst organisatorische und mechanische Arbeiten.</p>
+      </div>
+      <div class="services">
+        <article class="service">
+          <p class="index">01 / Belegorganisation</p>
+          <h3>Unterlagen in eine klare Struktur bringen.</h3>
+          <p>Vorhandene Dokumente sammeln und nach gemeinsam vereinbarten Kriterien ordnen.</p>
+          <ul><li>Scannen, benennen und ablegen</li><li>Belege nach Datum und Belegart sortieren</li><li>Offensichtliche Lücken zur Rückfrage markieren</li></ul>
+        </article>
+        <article class="service">
+          <p class="index">02 / Datenerfassung</p>
+          <h3>Informationen nach Ihrer Vorgabe übertragen.</h3>
+          <p>Mechanische Erfassung in vereinbarten Tabellen oder Erfassungsmasken.</p>
+          <ul><li>Vorgegebene Felder aus Dokumenten übernehmen</li><li>Vorhandene Listen ergänzen</li><li>Unklare Angaben zur Entscheidung vorlegen</li></ul>
+        </article>
+        <article class="service">
+          <p class="index">03 / Digitale Übergabe</p>
+          <h3>Den nächsten Arbeitsschritt vorbereiten.</h3>
+          <p>Unterlagen und Rückfragen so zusammenstellen, dass Zuständigkeiten klar bleiben.</p>
+          <ul><li>Dokumente nach vereinbarter Struktur bündeln</li><li>Eine Liste offener Rückfragen führen</li><li>Über den gemeinsam festgelegten Weg übergeben</li></ul>
+        </article>
+      </div>
+      <p class="scope"><strong>Klarer Leistungsumfang:</strong> Diese Entwurfsfassung enthält keine eigenständige Kontierung, Buchungsanweisungen oder steuerliche Beurteilung. Steuerberatung, Steuererklärungen, Umsatzsteuer-Voranmeldungen, EÜR und Jahresabschlüsse gehören nicht zum dargestellten Angebot.</p>
+    </section>
+    <section class="content wash" id="ablauf" aria-labelledby="ablauf-title">
+      <div class="wrap">
+        <p class="eyebrow">Die Zusammenarbeit</p>
+        <h2 id="ablauf-title">Drei Schritte zu einer<br>übersichtlichen Ablage.</h2>
+        <ol class="steps">
+          <li><p class="step-number">01</p><h3>Bedarf klären</h3><p>Welche Unterlagen liegen vor? Was soll erledigt werden? Gemeinsam werden Aufgaben, Termine und Zugänge festgelegt.</p></li>
+          <li><p class="step-number">02</p><h3>Umfang vereinbaren</h3><p>Ein schriftliches Angebot beschreibt Leistung, Ergebnis und Vergütung. Belegmenge, vorhandene Struktur und Rückfragen bestimmen den Aufwand.</p></li>
+          <li><p class="step-number">03</p><h3>Bearbeiten &amp; übergeben</h3><p>Die vereinbarten Arbeiten werden durchgeführt. Offene Punkte werden dokumentiert und zur Entscheidung zurückgegeben.</p></li>
+        </ol>
+      </div>
+    </section>
+    <section class="content wrap about" id="person" aria-labelledby="person-title">
+      <div class="profile">
+        <p class="eyebrow">Ihr Ansprechpartner</p>
+        <h3>[Vorname Nachname]</h3>
+        <p class="pending">Gründer und künftiger Leistungserbringer</p>
+        <dl>
+          <dt>Qualifikation</dt><dd>[Exakte Abschlussbezeichnung und Anbieter ergänzen]</dd>
+          <dt>Berufspraxis</dt><dd>[Tätigkeiten, Zeitraum und Wochenstunden ergänzen]</dd>
+          <dt>Standort</dt><dd>[Ort und tatsächliches Einzugsgebiet ergänzen]</dd>
+        </dl>
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow">Persönlich organisiert</p>
+        <h2 id="person-title">Ein Ansprechpartner.<br>Klare Absprachen.</h2>
+        <p>Geplant ist ein persönlich geführter Service für Unternehmen, die verlässliche Unterstützung bei wiederkehrender Büroarbeit suchen.</p>
+        <ul class="principles">
+          <li><strong>Passender Umfang.</strong> Einmalige Aufgaben und regelmäßige Unterstützung werden einzeln vereinbart.</li>
+          <li><strong>Nachvollziehbare Ergebnisse.</strong> Bearbeitete Unterlagen und offene Rückfragen werden gemeinsam übergeben.</li>
+          <li><strong>Geregelte Zugänge.</strong> Dokumentenwege und Zugriffsrechte werden vor der Zusammenarbeit festgelegt.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="content wash" aria-labelledby="faq-title">
+      <div class="wrap faq">
+        <p class="eyebrow">Häufige Fragen</p>
+        <h2 id="faq-title">Gut zu wissen.</h2>
+        <details><summary>Ist auch eine einzelne Aufgabe möglich?</summary><p>Vorgesehen sind sowohl einzelne, klar abgegrenzte Aufgaben als auch regelmäßige Unterstützung. Der konkrete Leistungsumfang wird vor dem Start vereinbart.</p></details>
+        <details><summary>Was kostet die Unterstützung?</summary><p>Ein Angebot richtet sich nach Unterlagenmenge, Ausgangszustand, gewünschtem Ergebnis und Abstimmungsaufwand. In diesem Entwurf sind noch keine verbindlichen Preise hinterlegt.</p></details>
+        <details><summary>Wird auch die laufende Buchhaltung übernommen?</summary><p>Dieser Entwurf beschränkt sich auf Belegorganisation und mechanische Datenerfassung nach Vorgabe. Das Buchen laufender Geschäftsvorfälle und weitere Leistungen werden erst nach Prüfung der persönlichen Voraussetzungen nach § 6 Absatz 1 Nummer 1 StBerG in das Angebot aufgenommen.</p></details>
+        <details><summary>Ersetzt der Service meine Steuerkanzlei?</summary><p>Nein. Steuerliche Entscheidungen, Steuererklärungen, Umsatzsteuer-Voranmeldungen und Jahresabschlüsse sind hier nicht Bestandteil des Angebots. Die organisatorische Zuarbeit kann mit Ihrer Steuerkanzlei abgestimmt werden.</p></details>
+        <details><summary>Wie werden Unterlagen übermittelt?</summary><p>Der Übertragungsweg und die erforderlichen Zugriffsrechte werden vorab abgestimmt. Diese Entwurfsseite enthält keinen Dokumentenupload und keine Möglichkeit, vertrauliche Unterlagen zu senden.</p></details>
+      </div>
+    </section>
+    <section class="content contact" id="kontakt" aria-labelledby="kontakt-title">
+      <div class="wrap contact-grid">
+        <div><p class="eyebrow">Kontakt</p><h2 id="kontakt-title">Was darf im Büro<br>leichter werden?</h2><p>Für ein erstes Gespräch sind die gewünschte Unterstützung, Ihre ungefähre Belegmenge und der bevorzugte Starttermin hilfreich.</p><p class="contact-note">Die Kontaktaufnahme wird nach Ergänzung und Prüfung der Betreiberangaben freigeschaltet. Dieser Entwurf nimmt keine Anfragen entgegen.</p></div>
+        <div class="contact-data">
+          <dl><dt>Ansprechpartner</dt><dd>[Vorname Nachname]</dd><dt>E-Mail</dt><dd>[Bestätigte Geschäftsadresse ergänzen]</dd><dt>Telefon</dt><dd>[Geschäftliche Telefonnummer ergänzen]</dd><dt>Standort</dt><dd>[Ort ergänzen]</dd></dl>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap" id="startangaben">
+    <div class="footer-top"><strong>Buchhaltungsservice [Nachname]</strong><span>Entwurf vom 14. September 2026 · noch nicht für den Geschäftsstart freigegeben</span></div>
+    <div class="legal-grid">
+      <details><summary>Impressum – Angaben noch offen</summary><p><strong>Dies ist noch kein vollständiges Impressum.</strong> Vor einer geschäftlichen Veröffentlichung sind die tatsächlichen Angaben nach § 5 DDG zu ergänzen.</p><ul><li>Vollständiger Name des Betreibers und Rechtsform, soweit vorhanden</li><li>Ladungsfähige Geschäftsanschrift</li><li>Bestätigte E-Mail-Adresse und weitere Kontaktmöglichkeit</li><li>Register- und Umsatzsteuer-ID-Angaben, soweit einschlägig</li></ul><p>Die Anschrift oder Identität des technischen Unterstützers darf nicht ersatzweise als Betreiber angegeben werden.</p></details>
+      <details><summary>Datenschutz – Entwurfshinweis</summary><p>Diese HTML-Datei enthält keine Analysewerkzeuge, extern geladenen Schriftarten, eingebetteten Dienste, Formulare oder Dokumentenuploads.</p><p><strong>Für die Veröffentlichung fehlt die vollständige Datenschutzerklärung.</strong> Sie muss insbesondere den tatsächlichen Verantwortlichen, Hosting und Serverprotokolle, Kontaktverarbeitung, Rechtsgrundlagen, Speicherfristen, Empfänger und Betroffenenrechte abbilden. Eine Hosting-Plattform kann unabhängig von dieser Datei Daten verarbeiten.</p></details>
+    </div>
+  </footer>
+
+  <!-- OPTIONALER BAUSTEIN: erst nach Prüfung der Qualifikation und Praxiserfahrung
+       nach § 6 Abs. 1 Nr. 1 StBerG aktivieren. Ein Zertifikat allein genügt nicht.
+       Dieses template wird vom Browser NICHT angezeigt. -->
+  <template id="laufende-buchhaltung-nach-qualifikationspruefung">
+    <article class="service">
+      <p class="index">Laufende Buchhaltung</p>
+      <h3>Laufende Geschäftsvorfälle buchen.</h3>
+      <p>Erfassung und Buchung laufender Geschäftsvorfälle im vereinbarten System. Unklare steuerliche Sachverhalte werden an Ihre Steuerkanzlei zur Entscheidung gegeben.</p>
+      <p>Leistungen nach § 6 Absatz 1 Nummer 1 StBerG. Keine Steuerberatung, Steuererklärungen, Umsatzsteuer-Voranmeldungen, EÜR oder Jahresabschlüsse.</p>
+    </article>
+  </template>
+</body>
+</html>
